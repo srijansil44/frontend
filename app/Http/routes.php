@@ -10,17 +10,28 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
-Route::get('/', function () {
+Route::get('/',function ()
+{
     return view('welcome');
 });
+
+Route::auth();
+
+
+Route::get('/home', 'HomeController@index');
+
 
 Route::get('admin', function (){
     return view('admin.index');
 });
 
+// Registering the middleware and Using miidleware name admin
+
+Route::group(['middleware'=>'admin'], function ()
+{
+    Route::resource('/admin/users', 'AdminUsersController');
+
+});
 
 
-Route::resource('/admin/users', 'AdminUsersController');
 
-Route::auth();

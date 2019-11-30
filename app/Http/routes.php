@@ -25,11 +25,13 @@ Route::get('admin', function (){
     return view('admin.index');
 });
 
-// Registering the middleware and Using miidleware name admin
+// Registering the middleware and Using miidleware name ->  Admin
 
 Route::group(['middleware'=>'admin'], function ()
 {
+
     Route::resource('/admin/users', 'AdminUsersController');
+    Route::resource('/admin/posts','AdminPostsController');
 
 });
 

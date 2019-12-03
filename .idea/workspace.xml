@@ -4,10 +4,25 @@
     <list default="true" id="e40df378-f680-4cb6-8518-da76bde2c381" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminPostsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminPostsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminUsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminUsersController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/routes.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/posts/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/posts/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_11_29_154204_create_posts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_11_29_154204_create_posts_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/1575033875PhotoGrid_1463324266359.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/1575035471as.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/157503603353717321_2176407735730574_3752266816299204608_n.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/1575125268as.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/1575125277as.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/15751277061462993928image_4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/15751279721485372732image_1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/15751819381461434446woma4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/15751819771461498423image_0.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/15751821431462993928image_4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/15751822941461605675woman4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/placeholder.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/posts/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/posts/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/posts/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/posts/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/users/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/users/index.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -115,7 +130,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../mail" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../loginsystem" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="editing.templates" />
   </component>
@@ -159,6 +174,7 @@
       <workItem from="1575046877590" duration="118000" />
       <workItem from="1575090541387" duration="5775000" />
       <workItem from="1575114750218" duration="9136000" />
+      <workItem from="1575262240903" duration="10978000" />
     </task>
     <servers />
   </component>

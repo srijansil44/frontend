@@ -6,10 +6,12 @@ use App\Category;
 use App\Http\Requests\PostsCreateRequest;
 use App\Photo;
 use App\Post;
+use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class AdminPostsController extends Controller
 {
@@ -36,6 +38,7 @@ class AdminPostsController extends Controller
         //
         $categories = Category::lists('name', 'id')->all();
         return view('admin.posts.create', compact('categories'));
+
 
     }
 
@@ -78,6 +81,7 @@ class AdminPostsController extends Controller
     public function show($id)
     {
         //
+
     }
 
     /**
@@ -89,6 +93,9 @@ class AdminPostsController extends Controller
     public function edit($id)
     {
         //
+        $post =  Post::findorfail($id);
+        $categories = Category::lists('name','id')->all();
+        return view('admin.posts.edit',compact('post','categories'));
     }
 
     /**
@@ -101,6 +108,33 @@ class AdminPostsController extends Controller
     public function update(Request $request, $id)
     {
         //
+      $input =  $request->all();
+
+      if($file = $request->file('photo_id'))
+      {
+          $name = time() . $file->getClientOriginalName();
+          $file->move('images',$name);
+          $photo = Photo::create(['path'=>$name]);
+          $input['photo_id'] = $photo->id;
+      }
+
+        $post = Post::findorfail($id);
+         $post_user =   $post->user->name;
+        if (is_null(Auth::user()->posts()->whereId($id)->first())) {
+                        Session::flash('cannot_updated','Sorry you cannot update the post of  '.strtoupper($post_user));
+                        return  redirect('/admin/posts');
+
+        } else {
+            // It's not null, update the post
+            Auth::user()->posts()->whereId($id)->first()->update($input);
+            return redirect('/admin/posts');
+
+        }
+
+
+
+
+
     }
 
     /**
@@ -111,6 +145,31 @@ class AdminPostsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::findorfail($id);
+        $post_user =   $post->user->name;
+
+
+            if (is_null(Auth::user()->posts()->whereId($id)->first())) {
+                    Session::flash('cannot_delete','Sorry you cannot delete the post of  '.strtoupper($post_user));
+                    return  redirect('/admin/posts');
+
+                } else {
+                    // It's not null, deleted the post
+                  $posts =   Auth::user()->posts()->whereId($id)->first();
+
+                if ($posts->photo()->exists()) {
+                    unlink(public_path() . $posts->photo->file);
+                }
+
+                    $posts->delete();
+                    Session::flash('deleted_post','The post has been deleted');
+
+                    return redirect('/admin/posts');
+
+                }
+
+
+
+
     }
 }

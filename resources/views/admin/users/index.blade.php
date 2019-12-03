@@ -22,7 +22,7 @@
         <th>Name</th>
         <th>Email</th>
         <th>Role</th>
-        <th>Is_Active</th>
+        <th>Status</th>
         <th>Created_at</th>
         <th>Updated_at</th>
       </tr>
@@ -56,3 +56,5 @@
 
 
 @stop
+
+

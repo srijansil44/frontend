@@ -5,15 +5,15 @@
 
 
     @if(Session::has('deleted_post'))
-        <p class="bg-success">{{session('deleted_post')}} </p>
+        <div class="alert alert-success">{{session('deleted_post')}} </div>
     @endif
 
     @if(Session::has('cannot_updated'))
-        <h3 class="bg-info">{{session('cannot_updated') }} </h3>
+        <div class="alert alert-success">{{session('cannot_updated') }} </div>
     @endif
 
     @if(Session::has('cannot_delete'))
-        <h3 class="bg-info display-4">{{session('cannot_delete') }} </h3>
+        <div class="alert alert-success">{{session('cannot_delete') }} </div>
     @endif
 
 
@@ -39,7 +39,7 @@
             <td>{{$post->id}}</td>
             <td><img height="100"src="{{$post->photo ? $post->photo->path :'http://placehold.it/400x400' }}" alt=""></td>
             <td><a href="{{route('admin.posts.edit',$post->id)}}">{{$post->user->name}}</a></td>
-            <td>{{$post->category->name}} </td>
+            <td>{{$post->category? $post->category->name: 'Uncategorized'}} </td>
             <td>{{$post->title}}</td>
             <td>{{str_limit($post->body,6)}}</td>
             <td>{{$post->created_at->diffForHumans()}}</td>
@@ -53,5 +53,7 @@
 
 
       </table>
+
+    @include('include.form_errors')
 
 @stop

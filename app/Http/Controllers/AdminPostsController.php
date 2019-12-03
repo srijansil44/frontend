@@ -158,7 +158,7 @@ class AdminPostsController extends Controller
                   $posts =   Auth::user()->posts()->whereId($id)->first();
 
                 if ($posts->photo()->exists()) {
-                    unlink(public_path() . $posts->photo->file);
+                    unlink(public_path() . $posts->photo->path);
                 }
 
                     $posts->delete();

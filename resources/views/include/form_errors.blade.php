@@ -18,3 +18,13 @@
 
 </div>
 @endif
+
+@section('footer')
+    <script>
+        $('div.alert').delay(3000).slideUp(300);
+    </script>
+@stop
+
+
+
+

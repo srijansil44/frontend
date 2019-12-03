@@ -154,8 +154,9 @@ class AdminUsersController extends Controller
 
 
         if ($user->photo()->exists()) {
-            unlink(public_path() . $user->photo->file);
+            unlink(public_path() . $user->photo->path);
         }
+
         $user->delete();
 
         Session::flash('deleted_user','The user has been deleted');

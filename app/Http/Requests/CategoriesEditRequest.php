@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class UsersCreateRequest extends Request
+class CategoriesEditRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,13 +24,9 @@ class UsersCreateRequest extends Request
     public function rules()
     {
         return [
-
-            'name'=>'required',
-            'email'=>'required',
-            'role_id'=>'required',
-            'is_active'=>'required',
-            'password'=>'required'
             //
+            'name'=>  'required|unique:categories,name,' . $this->get('id')
+
         ];
     }
 }

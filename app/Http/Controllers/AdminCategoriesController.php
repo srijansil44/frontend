@@ -114,7 +114,6 @@ class AdminCategoriesController extends Controller
             {
                  $post->update(['category_id'=>null]);
             }
-
         }
 
         Session::flash('deleted_category' ,'The category '.$category->name. ' has been removed');

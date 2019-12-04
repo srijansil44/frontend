@@ -148,15 +148,18 @@ class AdminPostsController extends Controller
         $post = Post::findorfail($id);
         $post_user =   $post->user->name;
 
-
+             //checking if the post of the current authnticated user
             if (is_null(Auth::user()->posts()->whereId($id)->first())) {
                     Session::flash('cannot_delete','Sorry you cannot delete the post of  '.strtoupper($post_user));
                     return  redirect('/admin/posts');
 
-                } else {
+                }
+            else {
+
                     // It's not null, deleted the post
                   $posts =   Auth::user()->posts()->whereId($id)->first();
 
+                 //if the post has photo
                 if ($posts->photo()->exists()) {
                     unlink(public_path() . $posts->photo->path);
                 }

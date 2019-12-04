@@ -41,7 +41,7 @@
             <th>Id</th>
             <th>Name</th>
             <th>Created_At</th>
-{{--            <th>Updated_At</th>--}}
+            <th>Updated_At</th>
           </tr>
          </thead>
           <tbody>
@@ -51,7 +51,7 @@
             <td>{{$category->id}}</td>
             <td><a href="{{route('admin.categories.edit',$category->id)}}">{{$category->name}}</a></td>
             <td>{{$category->created_at->diffForHumans()}}</td>
-{{--            <td>{{$category->updated_at->diffForHumans()}}</td>--}}
+            <td>{{$category->updated_at->diffForHumans()}}</td>
           </tr>
           @endforeach
                @endif

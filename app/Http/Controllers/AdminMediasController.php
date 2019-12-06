@@ -15,13 +15,19 @@ class AdminMediasController extends Controller
     {
 
         $photos = Photo::all();
-        return view('admin.medias.index',compact('photos'));
 
 
+
+       return view('admin.medias.index', compact('photos'));
     }
+
+
+
 
     public function create()
     {
+
+
         return view('admin.medias.create');
     }
 

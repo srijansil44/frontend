@@ -3,11 +3,24 @@
   <component name="ChangeListManager">
     <list default="true" id="e40df378-f680-4cb6-8518-da76bde2c381" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminCategoriesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminCategoriesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminMediasController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminMediasController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminPostsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminPostsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminUsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminUsersController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/routes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_11_29_154204_create_posts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_11_29_154204_create_posts_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/categories/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/categories/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Photo.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Photo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Post.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Role.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Role.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/1575275895laravel.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/1575275934nodejs.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/15752760331485372732image_3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/15752762371472781924image_4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/15752779211461598714man2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/1575277960laravel.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/1575378595nodejs.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/15753886011462994939image_3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/15753887111472781731image_1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/medias/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/medias/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -116,7 +129,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../polymorphic" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../onetoone" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="editing.templates" />
   </component>
@@ -172,7 +185,14 @@
       <workItem from="1575348797902" duration="11658000" />
       <workItem from="1575378389924" duration="2995000" />
       <workItem from="1575386659758" duration="1863000" />
-      <workItem from="1575433309609" duration="4963000" />
+      <workItem from="1575433309609" duration="5365000" />
+      <workItem from="1575441972474" duration="419000" />
+      <workItem from="1575447280680" duration="4419000" />
+      <workItem from="1575463016400" duration="5398000" />
+      <workItem from="1575473732125" duration="2626000" />
+      <workItem from="1575524019160" duration="5462000" />
+      <workItem from="1575548656343" duration="9168000" />
+      <workItem from="1575607979232" duration="601000" />
     </task>
     <servers />
   </component>

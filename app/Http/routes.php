@@ -20,18 +20,25 @@ Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
+Route::get('/post/{id}',  ['as'=>'blog.home', 'uses'=> 'AdminPostsController@post']);
 
-Route::get('/admin', function (){
-    return view('admin.index');
-});
+
+
 
 // Registering the middleware and Using miidleware name ->  Admin
 
 Route::group(['middleware'=>'admin'], function ()
 {
+    Route::get('/admin', function (){
+        return view('admin.index');
+    });
 
     Route::resource('/admin/users', 'AdminUsersController');
     Route::resource('/admin/posts','AdminPostsController');
     Route::resource('/admin/categories', 'AdminCategoriesController');
     Route::resource('/admin/medias','AdminMediasController');
+    Route::resource('/admin/comments','PostCommentsController');
+    Route::resource('/admin/comments/replies','CommentRepliesController');
+
+
 });

@@ -175,4 +175,14 @@ class AdminPostsController extends Controller
 
 
     }
+
+
+    public function post($id)
+    {
+        $post = Post::findorfail($id);
+
+
+        return view('post',compact('post'));
+    }
+
 }

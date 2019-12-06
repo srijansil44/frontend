@@ -22,7 +22,9 @@ class AdminUsersController extends Controller
     public function index()
     {
         //
-        $users = User::all();
+                $users = User::all();
+
+
         return view('admin.users.index', compact('users'));
     }
 
@@ -154,6 +156,7 @@ class AdminUsersController extends Controller
 
 
         if ($user->photo()->exists()) {
+            $hello = $user->photo->path;
             unlink(public_path() . $user->photo->path);
         }
 

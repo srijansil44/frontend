@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Comment;
+use App\CommentReply;
 use App\Http\Requests\PostsCreateRequest;
 use App\Photo;
 use App\Post;
@@ -23,7 +25,10 @@ class AdminPostsController extends Controller
     public function index()
     {
         //
-        $posts = Post::all();
+//        $posts = Post::all();
+//             using pagination man
+
+        $posts = Post::paginate(2);
         return view('admin.posts.index', compact('posts'));
 
     }
@@ -62,7 +67,10 @@ class AdminPostsController extends Controller
             $input['photo_id'] = $photo->id;
         }
 
+
         $user->posts()->create($input);
+
+
 
         return redirect('/admin/posts');
 
@@ -177,12 +185,15 @@ class AdminPostsController extends Controller
     }
 
 
-    public function post($id)
+    public function post($slug)
     {
-        $post = Post::findorfail($id);
 
+        $post = Post::findBySlug($slug);
 
-        return view('post',compact('post'));
+        $comments = $post->comments()->whereIsActive(1)->get();
+
+        return view('post',compact('post','comments'));
+
     }
 
 }

@@ -54,7 +54,7 @@
   </table>
 
 
-
+@include('include.form_errors')
 @stop
 
 

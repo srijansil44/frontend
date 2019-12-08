@@ -13,13 +13,14 @@ class CommentReply extends Model
         'is_active',
         'author',
         'email',
-        'body'
+        'body',
+        'photo'
 
     ];
 
     public function comment()
     {
-        return $this->belongsTo('App\Comments');
+        return $this->belongsTo('App\Comment');
     }
 
 

@@ -1,6 +1,22 @@
 // @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
+
+#nested-comment
+{
+  margin-top: 60px;
+  text-decoration-color: #5bc0de;
+}
+
 #admin-page
 {
   padding-top: 0px;
 }
+
+.comment-reply
+{
+  display: none;
+}
+
+
+
+

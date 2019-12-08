@@ -15,6 +15,7 @@ class AdminMediasController extends Controller
     {
 
         $photos = Photo::all();
+        $photos  = Photo::paginate(10);
 
 
 

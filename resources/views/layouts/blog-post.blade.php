@@ -17,6 +17,7 @@
     <link href="{{asset('css/libs.css')}}" rel="stylesheet">
 
 
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -39,7 +40,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Start Bootstrap</a>
+            <a class="navbar-brand" href="#">Xenatech Nepal</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -141,7 +142,7 @@
     <footer>
         <div class="row">
             <div class="col-lg-12">
-                <p>Copyright &copy; Your Website 2014</p>
+                <p>Copyright &copy; XenaTech Service 2019</p>
             </div>
         </div>
         <!-- /.row -->
@@ -152,6 +153,8 @@
 
 <!-- jQuery -->
 <script src="{{asset('js/libs.js')}}"></script>
+
+@yield('scripts')
 
 
 </body>

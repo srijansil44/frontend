@@ -15,8 +15,9 @@ class CreateCommentsTable extends Migration
         Schema::create('comments', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('post_id')->unsigned()->index;
-            $table->integer('is_Active')->default(0);
-            $table->integer('author');
+            $table->integer('is_active')->default(0);
+            $table->string('author');
+            $table->string('photo');
             $table->string('email');
             $table->text('body');
             $table->timestamps();

@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Comment;
+use App\Post;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
 
 class PostCommentsController extends Controller
 {
@@ -16,7 +19,8 @@ class PostCommentsController extends Controller
     public function index()
     {
         //
-        return view('admin.comments.index');
+        $comments = Comment::all();
+        return view('admin.comments.index',compact('comments'));
     }
 
     /**
@@ -38,6 +42,20 @@ class PostCommentsController extends Controller
     public function store(Request $request)
     {
         //
+        $user = Auth::user();
+
+
+         $data = [
+
+             'author' =>   $user->name,
+             'post_id'=>  $request->post_id,
+             'body'=>     $request->body,
+             'photo' =>   $user->photo->path,
+             'email' =>   $user->email,
+
+         ];
+                  Comment::create($data);
+                  return redirect()->back();
     }
 
     /**
@@ -48,7 +66,9 @@ class PostCommentsController extends Controller
      */
     public function show($id)
     {
-        //
+      $post =   Post::findorfail($id);
+         $comments  =   $post -> comments;
+       return view('admin.comments.show', compact('comments'));
     }
 
     /**
@@ -72,6 +92,11 @@ class PostCommentsController extends Controller
     public function update(Request $request, $id)
     {
         //
+//        dd(Comment::findorfail($id));
+
+            Comment::findorfail($id)->update($request->all());
+            return redirect('/admin/comments');
+
     }
 
     /**
@@ -83,5 +108,7 @@ class PostCommentsController extends Controller
     public function destroy($id)
     {
         //
+        Comment::findorfail($id)->delete();
+        return  redirect('/admin/comments');
     }
 }

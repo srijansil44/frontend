@@ -78,7 +78,10 @@
       </table>
 
 
-{{----------------------------------------------------------------------------------------------}}
+
+
+
+{{--        --------------------------------------------------------------------------------------------}}
       <h1 class="bg-info" >Unused photo</h1>
     <table class="table table-hover">
         <thead>
@@ -108,6 +111,13 @@
         @endif
         </tbody>
     </table>
+
+
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-5">
+            {{$photos->render()}}
+        </div>
+    </div>
 
 
     @include('include.form_errors')

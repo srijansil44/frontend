@@ -1,4 +1,12 @@
+#nested-comment {
+  margin-top: 60px;
+  -webkit-text-decoration-color: #5bc0de;
+  text-decoration-color: #5bc0de; }
+
 #admin-page {
   padding-top: 0px; }
+
+.comment-reply {
+  display: none; }
 
 /*# sourceMappingURL=app.css.map */

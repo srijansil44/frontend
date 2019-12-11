@@ -63,4 +63,9 @@ class Post extends Model
     {
         return $this->hasMany('App\Comment');
     }
+
+    public function photoPlaceHolder()
+    {
+        return 'https://via.placeholder.com/300.png/09f/fff' ;
+    }
 }

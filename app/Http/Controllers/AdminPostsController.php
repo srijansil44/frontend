@@ -41,7 +41,10 @@ class AdminPostsController extends Controller
     public function create()
     {
         //
-        $categories = Category::lists('name', 'id')->all();
+//        $categories = Category::lists('name', 'id')->all();
+                 // Using pluck insteasds of lists
+        $categories = Category::pluck('name', 'id')->all();
+
         return view('admin.posts.create', compact('categories'));
 
 
@@ -67,8 +70,8 @@ class AdminPostsController extends Controller
             $input['photo_id'] = $photo->id;
         }
 
-
         $user->posts()->create($input);
+
 
 
 
@@ -102,7 +105,11 @@ class AdminPostsController extends Controller
     {
         //
         $post =  Post::findorfail($id);
-        $categories = Category::lists('name','id')->all();
+//        $categories = Category::lists('name','id')->all();
+        // Using pluck insteasds of lists
+
+        $categories = Category::pluck('name','id')->all();
+
         return view('admin.posts.edit',compact('post','categories'));
     }
 

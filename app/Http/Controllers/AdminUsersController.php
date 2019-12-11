@@ -36,8 +36,11 @@ class AdminUsersController extends Controller
     public function create()
     {
         //
-        $roles = Role::lists('name','id')->all();
-         return view('admin.users.create', compact('roles'));
+//        $roles = Role::lists('name','id')->all();
+               //using pluck insteads of lists
+        $roles = Role::pluck('name','id')->all();
+
+        return view('admin.users.create', compact('roles'));
     }
 
     /**
@@ -96,7 +99,10 @@ class AdminUsersController extends Controller
         //
 
           $user = User::findorfail($id);
-          $role =  Role::lists('name', 'id')->all();
+//        $role =  Role::lists('name', 'id')->all();
+            //  using pluck instead of lists
+
+        $role =  Role::pluck('name', 'id')->all();
 
           return view('admin.users.edit', compact('user' , 'role'));
     }

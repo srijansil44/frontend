@@ -39,4 +39,6 @@ class Photo extends Model
     {
         return $this->hasOne('App\Post');
     }
+
+
 }

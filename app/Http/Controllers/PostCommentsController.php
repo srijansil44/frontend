@@ -95,7 +95,7 @@ class PostCommentsController extends Controller
 //        dd(Comment::findorfail($id));
 
             Comment::findorfail($id)->update($request->all());
-            return redirect('/admin/comments');
+            return redirect()->back();
 
     }
 

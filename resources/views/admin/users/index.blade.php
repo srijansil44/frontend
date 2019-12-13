@@ -41,8 +41,8 @@
         <td>{{$user->email}}</td>
         <td>{{$user->role->name}}</td>
         <td>{{$user->is_active == 1 ? 'Active' : 'Not Active'}}</td>
-        <td>{{$user->created_at->diffForHumans()}}</td>
-        <td>{{$user->updated_at->diffForHumans()}}</td>
+        <td>{{$user->created_at ?$user->created_at ->diffForHumans(): 'no created at'}}</td>
+        <td>{{$user->updated_at ?$user->updated_at ->diffForHumans(): 'no updated at'}}</td>
       </tr>
 
         @endforeach

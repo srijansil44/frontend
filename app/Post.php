@@ -66,6 +66,7 @@ class Post extends Model
 
     public function photoPlaceHolder()
     {
-        return 'https://via.placeholder.com/300.png/09f/fff' ;
+//        return 'https://via.placeholder.com/300.png/09f/fff' ;
+        return 'http://placehold.jp/3d4070/ffffff/700x200.png?css=%7B%22border-radius%22%3A%2215px%22%7D';
     }
 }

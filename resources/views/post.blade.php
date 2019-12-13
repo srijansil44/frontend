@@ -1,174 +1,395 @@
-@extends('layouts.blog-post')
+{{--@extends('layouts.blog-home')--}}
 
-  @section('content')
+{{--@section('content')--}}
 
-      <h1>{{$post->title}}</h1>
-
-      <!-- Author -->
-      <p id="hello" class="lead">
-          by <a href="#">{{$post->user->name}}</a>
-      </p>
-
-      <hr>
-
-      <!-- Date/Time -->
-      <p><span class="glyphicon glyphicon-time"></span> {{$post->created_at->diffForHumans()}}</p>
-
-      <hr>
-
-      <!-- Preview Image -->
-      <img class="img-responsive" src="{{$post->photo ? $post->photo->path : $post->photoPlaceHolder()}}" alt="">
-
-      <hr>
-
-      <!-- Post Content -->
-{{--      <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, vero, obcaecati, aut, error quam sapiente nemo saepe quibusdam sit excepturi nam quia corporis eligendi eos magni recusandae laborum minus inventore?</p>--}}
-{{--      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus.</p>--}}
-{{--      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, doloribus, dolorem iusto blanditiis unde eius illum consequuntur neque dicta incidunt ullam ea hic porro optio ratione repellat perspiciatis. Enim, iure!</p>--}}
-{{--      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, nostrum, aliquid, animi, ut quas placeat totam sunt tempora commodi nihil ullam alias modi dicta saepe minima ab quo voluptatem obcaecati?</p>--}}
-{{--      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, dolor quis. Sunt, ut, explicabo, aliquam tenetur ratione tempore quidem voluptates cupiditate voluptas illo saepe quaerat numquam recusandae? Qui, necessitatibus, est!</p>--}}
-{{--<p>{{$post->body}}</p>   with filetrering --}}
-      <p>{!! $post->body !!}</p>
-
-      <hr>
-
-      <!-- Blog Comments -->
-
-      <!-- Comments Form -->
-
-          @if(Auth::check())
-              <div class="well">
-                  <h4>Leave a comment</h4>
-                  {!! Form::open(['method'=>'POST', 'action'=>'PostCommentsController@store']) !!}
-
-                  <input type="hidden"  name='post_id' value={{$post->id}} >
-                  <div class="form-group">
-                      {!! Form::label('body', 'Body:') !!}
-                      {!! Form::textarea('body', null, ['class'=>'form-control','rows'=>3]) !!}
-
-                  </div>
-
-                  <div class="form-group">
-                      {!! Form::submit('Comment', ['class'=>'btn btn-primary' ]) !!}
-                  </div>
+{{--    <div class="container">--}}
 
 
-                  {!! Form::close() !!}
-              </div>
-          @endif
+{{--        <div class="row">--}}
+
+{{--            <!-- Blog Entries Column -->--}}
+{{--            <div class="col-md-8">--}}
+
+{{--                <!-- First Blog Post -->--}}
+
+{{--                @if($posts)--}}
+{{--                    @foreach($posts as $post)--}}
+{{--                        <h2>--}}
+{{--                            <a href="#">{{$post->title}}</a>--}}
+{{--                        </h2>--}}
+{{--                        <p class="lead">--}}
+{{--                            by {{$post->user->name}}--}}
+{{--                        </p>--}}
+{{--                        <p><span class="glyphicon glyphicon-time"></span> {{$post->created_at->diffForHumans()}}</p>--}}
+{{--                        <hr>--}}
+{{--                        <img class="img-responsive" src="{{$post->photo ? $post->photo->path :  $post->photoPlaceHolder()}}" alt="">--}}
+{{--                        <hr>--}}
+{{--                        <p> {!! str_limit($post->body,200)  !!} </p>--}}
+{{--                        <a class="btn btn-primary" href="{{route('home.post',$post->slug)}}">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>--}}
 
 
-      <hr>
+{{--                        <hr>--}}
+{{--                @endforeach--}}
+
+{{--            @endif--}}
 
 
 
-{{--      <!-- Posted Comments -->--}}
-{{--@if(count($comments)  > 0 )--}}
-{{--      <!-- Comment -->--}}
-{{--           @foreach($comments as $comment)--}}
-{{--                   <div class="media">--}}
-{{--                    <a class="pull-left" href="#">--}}
-{{--                     <img class="media-object " height="64" width="64" src="{{$comment->photo}}" alt="">--}}
-{{--                    </a>--}}
-{{--              <div class="media-body">--}}
-{{--                 <h4 class="media-heading">{{$comment->author}}--}}
-{{--                  <small>{{$comment->created_at->diffForHumans()}}</small>--}}
-{{--                 </h4>--}}
-{{--                  <p> {{$comment->body}} </p>--}}
-{{--                  --}}{{--reply button for the comment --}}
+{{--            <!-- Pagination-->--}}
 
+{{--                <div class="row">--}}
 
-{{--                  <div class="comment-reply-conatiner">--}}
-{{--                      <button class="toggle-reply btn btn-primary pull-right">reply</button>--}}
-{{--                      <div class="comment-reply ">--}}
+{{--                    <div class="col-sm-6 col-sm-offset-5">--}}
 
-{{--                          {!! Form::open(['method'=>'POST', 'action'=>'CommentRepliesController@createReply']) !!}--}}
+{{--                        {{$posts->render()}}--}}
 
-{{--                          <input type="hidden" name="comment_id" value="{{$comment->id}}">--}}
-{{--                          <div class="form-group">--}}
-{{--                              {!! Form::label('body', 'body:') !!}--}}
-{{--                              {!! Form::textarea('body', null, ['class'=>'form-control' , 'rows'=>2]) !!}--}}
+{{--                    </div>--}}
 
-{{--                          </div>--}}
-
-{{--                          <div class="form-group">--}}
-{{--                              {!! Form::submit('reply', ['class'=>'btn btn-primary']) !!}--}}
-{{--                          </div>--}}
-{{--                          {!! Form::close() !!}--}}
-{{--                      </div>--}}
-
-{{--                  </div>--}}
+{{--                </div>--}}
 
 
 
-{{--   If the comment has replies --}}
-{{--                @if(count($comment->replies) > 0)--}}
-{{--                  @foreach($comment->replies as $reply )--}}
-{{--                      @if($reply->is_active == 1 )--}}
+{{--            </div>--}}
 
-{{--                          <!-- Nested Comment -->--}}
+{{--            <!-- Blog Sidebar  -->--}}
+{{--            @include('include.front_sidebar')--}}
 
-{{--                              <div id="nested-comment"  class=" media">--}}
-{{--                                   <a class="pull-left" href="#">--}}
-{{--                                         <img class="media-object"  height="64" width="64" src="{{$reply->photo}}" alt="">--}}
-{{--                                   </a>--}}
-{{--                                     <div class="media-body">--}}
-{{--                                          <h4 class="media-heading">{{$reply->author}}--}}
-{{--                                             <small>{{$reply->created_at->diffForHumans()}}</small>--}}
-{{--                                              </h4>--}}
-{{--                                          <p>{{$reply->body}}</p>--}}
-{{--                                     </div>--}}
-{{--reply button for the comment --}}
-{{--                              <div class="comment-reply-conatiner">--}}
-{{--                                  <button class="toggle-reply btn btn-primary pull-right">reply</button>--}}
-{{--                                     <div class="comment-reply col-sm-6">--}}
+{{--        </div>--}}
+{{--        <!-- /.row -->--}}
 
-{{--                           {!! Form::open(['method'=>'POST', 'action'=>'CommentRepliesController@createReply']) !!}--}}
 
-{{--                               <input type="hidden" name="comment_id" value="{{$comment->id}}">--}}
-{{--                                <div class="form-group">--}}
-{{--                                  {!! Form::label('body', 'body:') !!}--}}
-{{--                                  {!! Form::textarea('body', null, ['class'=>'form-control' , 'rows'=>2]) !!}--}}
+{{--    </div>--}}
+{{--@endsection--}}
 
-{{--                                  </div>--}}
 
-{{--                               <div class="form-group">--}}
-{{--                                   {!! Form::submit('reply', ['class'=>'btn btn-primary']) !!}--}}
-{{--                               </div>--}}
-{{--                           {!! Form::close() !!}--}}
-{{--                                     </div>--}}
+        <!DOCTYPE html>
+<html lang="en">
 
-{{--                            </div>--}}
-{{--                 <!-- End Nested Comment -->--}}
-{{--                               </div>--}}
-{{--                          @endif--}}
+<head>
 
-{{--                  @endforeach--}}
-{{--                    @endif--}}
-{{--              </div>--}}
-{{--                   </div>--}}
-{{--      @endforeach--}}
-{{--@endif--}}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Blog Home - Start Bootstrap Template</title>
+
+    <!-- Bootstrap Core CSS -->
+    <style>
+        body
+        {
+            font-family: 'Noto Sans TC', sans-serif;
+
+        }
 
 
 
 
+    </style>
+
+    <link rel="stylesheet" href="{{asset('css/libs.css')}}">
+    <link rel="stylesheet"  href="{{asset('css/app.css')}}" >
+    <!-- Custom CSS -->
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">XenaTech Services</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+
+                @if(Auth::guest())
+                    <li><a href="{{url('/login')}}">Login</a></li>
+                    <li><a href="{{url('/register')}}">Register</a></li>
+                @else
+                    <li><a href="/admin">Admin</a></li>
+                    <li><a href="/logout">Logout</a></li>
+                @endif
 
 
-  @stop
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
 
 
-@section('scripts')
+<!-- Page Content -->
+<div class="container" id="demo">
+
+    <div class="row">
+
+        <!-- Blog Entries Column -->
+        <div class="col-md-8">
+
+            <!-- Blog Post -->
+
+            <!-- Title -->
+            <h1>{{$post->title}}</h1>
+
+            <!-- Author -->
+            <p class="lead">
+                by {{$post->user->name}}
+            </p>
+
+            <hr>
+
+            <!-- Date/Time -->
+            <p><span class="glyphicon glyphicon-time"></span> Posted {{$post->created_at->diffForHumans()}}</p>
+
+            <hr>
+
+            <!-- Preview Image -->
+            <img class="img-responsive" src="{{$post->photo ? $post->photo->path : $post->photoPlaceholder()}}" alt="">
+
+            <hr>
+
+            <!-- Post Content -->
+
+            <p>{!!$post->body!!}</p>
+
+            <hr>
 
 
 
-    <script>
-
-        $('.comment-reply-conatiner .toggle-reply').click(function () {
-            $(this).next().slideToggle('slow');
-
-        });
-    </script>
+            <!-- Blog Comments -->
 
 
-    @stop
+        @if(Auth::check())
+
+            <!-- Comments Form -->
+                <div class="well">
+                    <h4>Leave a Comment:</h4>
+
+
+                    {!! Form::open(['method'=>'POST', 'action'=> 'PostCommentsController@store']) !!}
+
+
+                    <input type="hidden" name="post_id" value="{{$post->id}}">
+
+
+                    <div class="form-group">
+                        {!! Form::label('body', 'Body:') !!}
+                        {!! Form::textarea('body', null, ['class'=>'form-control','rows'=>3])!!}
+                    </div>
+
+                    <div class="form-group">
+                        {!! Form::submit('Submit comment', ['class'=>'btn btn-primary']) !!}
+                    </div>
+                    {!! Form::close() !!}
+
+
+                </div>
+
+
+            @endif
+
+            <hr>
+
+
+
+
+            <!-- Posted Comments -->
+            @if(count($comments)  > 0 )
+            <!-- Comment -->
+                @foreach($comments as $comment)
+                    <div class="media">
+                        <a class="pull-left" href="#">
+                            <img class="media-object " height="64" width="64" src="{{$comment->photo}}" alt="">
+                        </a>
+                        <div class="media-body">
+                            <h4 class="media-heading">{{$comment->author}}
+                                <small>{{$comment->created_at->diffForHumans()}}</small>
+                            </h4>
+                            <p> {{$comment->body}} </p>
+
+                            <div class="comment-reply-container">
+
+                                {{--                                <button class="toggle-reply btn btn-primary pull-right">Reply</button>--}}
+
+                                <div class="comment-reply">
+
+
+                                    {!! Form::open(['method'=>'POST', 'action'=>'CommentRepliesController@createReply']) !!}
+
+                                    <input type="hidden" name="comment_id" value="{{$comment->id}}">
+                                    <div class="form-group">
+                                        {!! Form::label('body', 'body:') !!}
+                                        {!! Form::textarea('body', null, ['class'=>'form-control' , 'rows'=>2]) !!}
+
+                                    </div>
+
+                                    <div class="form-group">
+                                        {!! Form::submit('reply', ['class'=>'btn btn-primary']) !!}
+                                    </div>
+                                    {!! Form::close() !!}
+                                </div>
+
+                            </div>
+
+
+
+                        {{--   If the comment has replies--}}
+                        @if(count($comment->replies) > 0)
+                            @foreach($comment->replies as $reply )
+                                @if($reply->is_active == 1 )
+
+                                    <!-- Nested Comment -->
+
+                                        <div id="nested-comment"  class=" media">
+                                            <a class="pull-left" href="#">
+                                                <img class="media-object"  height="64" width="64" src="{{$reply->photo}}" alt="">
+                                            </a>
+                                            <div class="media-body">
+                                                <h4 class="media-heading">{{$reply->author}}
+                                                    <small>{{$reply->created_at->diffForHumans()}}</small>
+                                                </h4>
+                                                <p>{{$reply->body}}</p>
+                                            </div>
+                                            <div class="comment-reply-container">
+
+                                                {{--                                                <button class="toggle-reply btn btn-primary pull-right">Reply</button>--}}
+
+                                                <div class="comment-reply">
+
+
+                                                    {!! Form::open(['method'=>'POST', 'action'=>'CommentRepliesController@createReply']) !!}
+
+                                                    <input type="hidden" name="comment_id" value="{{$comment->id}}">
+                                                    <div class="form-group">
+                                                        {!! Form::label('body', 'body:') !!}
+                                                        {!! Form::textarea('body', null, ['class'=>'form-control' , 'rows'=>2]) !!}
+
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        {!! Form::submit('reply', ['class'=>'btn btn-primary']) !!}
+                                                    </div>
+                                                    {!! Form::close() !!}
+                                                </div>
+
+                                            </div>
+                                            <!-- End Nested Comment -->
+                                        </div>
+                                    @endif
+
+                                @endforeach
+                            @endif
+                        </div>
+                    </div>
+                @endforeach
+            @endif
+
+
+
+        </div> <!-- col-md-8-->
+
+
+        <!-- Blog Sidebar Widgets Column -->
+        <div class="col-md-4">
+
+            <!-- Blog Search Well -->
+            <div class="well">
+                <h4>Blog Search</h4>
+                <div class="input-group">
+                    <input type="text" class="form-control">
+                    <span class="input-group-btn">
+                            <button class="btn btn-default" type="button">
+                                <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                        </span>
+                </div>
+                <!-- /.input-group -->
+            </div>
+
+            <!-- Blog Categories Well -->
+            <div class="well">
+                <h4>Blog Categories</h4>
+                <div class="row">
+                    <div class="col-lg-6">
+                        @if($categories)
+                            <ul class="list-unstyled">
+                                @foreach($categories as $category)
+                                    <li><a href="#">{{$category->name}}</a>
+                                    </li>
+                                @endforeach
+                            </ul>
+
+                        @endif
+                    </div>
+
+                    <!-- /.row -->
+                </div>
+
+                <!-- Side Widget Well -->
+                <div class="well">
+                    <h4>Side Widget Well</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
+                </div>
+
+            </div>
+
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Your Website 2014</p>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+        </footer>
+
+    </div>
+    <!-- /.container -->
+</div>
+
+
+
+
+<!-- jQuery -->
+<script src="{{asset('js/libs.js')}}"></script>
+
+
+
+
+
+
+
+
+
+
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

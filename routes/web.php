@@ -20,22 +20,19 @@ Route::auth();
 Route::get('/logout', 'Auth\LoginController@logout');
 
 
-Route::get('/home', 'HomeController@index');
+Route::get('/', 'HomeController@index');
 
-Route::get('/post/{id}',  ['as'=>'home.post', 'uses'=> 'AdminPostsController@post']);
+Route::get('/post/{id}',  ['as'=>'home.post', 'uses'=> 'HomeController@post']);
 
-Route::get('/admin', function (){
-    return view('admin.index');
-});
+
 
 
 
 // Registering the middleware and Using miidleware name ->  Admin
 
 Route::group(['middleware'=>'admin'], function () {
-//    Route::get('/admin', function (){
-//        return view('admin.index');
-//    });
+
+    Route::get('/admin', 'AdminController@index');
     // beacuse the route name has been changed to the "users.index" , so we were giving them name
     Route::resource('/admin/users', 'AdminUsersController', ['names' =>
         [
@@ -58,6 +55,8 @@ Route::group(['middleware'=>'admin'], function () {
             'destroy' => 'admin.posts.destroy'
 
         ]]);
+
+
     Route::resource('/admin/categories', 'AdminCategoriesController', ['names' =>
         [
             'index' => 'admin.categories.index',
@@ -89,6 +88,8 @@ Route::group(['middleware'=>'admin'], function () {
             'destroy' => 'admin.comments.destroy'
 
         ]]);
+
+
     Route::resource('/admin/comments/replies', 'CommentRepliesController', ['names' =>
         [
 

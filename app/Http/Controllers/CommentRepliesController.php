@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class CommentRepliesController extends Controller
 {
@@ -54,11 +55,15 @@ class CommentRepliesController extends Controller
                'author' =>   $user->name,
                'comment_id'=>  $request->comment_id,
                'body'=>     $request->body,
-               'photo' =>   $user->photo->path,
+               'photo' =>   $user->photo ? $user->photo->path : '',
                'email' =>   $user->email,
            ];
 
            CommentReply::create($data);
+
+        Session::flash('comment_message', 'The message has been submitted and waiting for moderation');
+
+
            return redirect()->back();
 
     }

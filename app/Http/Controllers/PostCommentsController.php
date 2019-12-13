@@ -50,7 +50,7 @@ class PostCommentsController extends Controller
              'author' =>   $user->name,
              'post_id'=>  $request->post_id,
              'body'=>     $request->body,
-             'photo' =>   $user->photo->path,
+             'photo' =>   $user->photo  ? $user->photo->path : '',
              'email' =>   $user->email,
 
          ];

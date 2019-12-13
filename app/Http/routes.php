@@ -47,6 +47,7 @@ Route::group(['middleware'=>'admin'], function ()
 Route::group(['middleware' => 'auth'], function ()
 {
     Route::post('/comment/reply','CommentRepliesController@createReply');
+
 });
 
 if (version_compare(PHP_VERSION, '7.2.0', '>=')) {

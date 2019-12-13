@@ -3,8 +3,7 @@
 
 @section('content')
 
-    @include('layouts.tiny-editor')
-
+@include('include.tiny-editor')
     <h1> Create Posts</h1>
 
     <div class="row">

@@ -23,14 +23,13 @@
          <tr>
             <th>Id</th>
             <th>Images</th>
-            <th>Owner</th>
+            <th>Title</th>
+             <th>Owner</th>
             <th>Category</th>
-            <th>title</th>
-            <th>body</th>
-            <th>Post link</th>
+            <th ><i class="fas fa-eye"></i></th>
             <th>Comment</th>
             <th>Create_at</th>
-            <th>Updated_at</th>
+{{--            <th>Updated_at</th>--}}
           </tr>
         </thead>
 
@@ -38,18 +37,16 @@
         @if($posts)
             @foreach($posts as $post)
             <tr>
-               <td>{{$post->id}}</td>
-                <td><img height="100"src="{{$post->photo ? $post->photo->path :'http://placehold.it/400x400' }}" alt=""></td>
-               <td><a href="{{route('admin.posts.edit',$post->id)}}">{{$post->user->name}}</a></td>
-               <td>{{$post->category? $post->category->name: 'Uncategorized'}} </td>
-               <td>{{$post->title}}</td>
-                <td>{{str_limit($post->body,6)}}</td>
+                <td>{{$post->id}}</td>
+                <td><img height="100"src="{{$post->photo ? $post->photo->path :$post->photoPlaceHolder() }}" alt=""></td>
+                <td><a href="{{route('admin.posts.edit',$post->id)}}">{{$post->title}}</a></td>
+                <td>{{$post->user->name}}</td>
+                <td>{{$post->category? $post->category->name: 'Uncategorized'}} </td>
                 <td><a href="{{route('home.post', $post->slug)}}">View post</a></td>
                 <td><a href="{{route('admin.comments.show', $post->id)}}">view comments</a></td>
                 <td>{{$post->created_at->diffForHumans()}}</td>
-                 <td>{{$post->updated_at->diffForHumans()}}</td>
-
-          </tr>
+{{--                <td>{{$post->updated_at->diffForHumans()}}</td>--}}
+            </tr>
             @endforeach
         @endif
 

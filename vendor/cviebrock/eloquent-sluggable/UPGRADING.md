@@ -1,5 +1,17 @@
 # Upgrading
 
+## Upgrading from 4.2 to 4.3
+
+* The signature for `scopeFindSimilarSlugs()` dropped the unused `$model` parameter:
+  ```diff
+  - public function scopeFindSimilarSlugs(Builder $query, Model $model, $attribute, $config, $slug)
+  + public function scopeFindSimilarSlugs(Builder $query, $attribute, $config, $slug)
+  ```
+  If you use this scope in your application, then remove the first argument passed to the scope.
+
+
+- - -
+
 ## Upgrading from 3.x to 4.x
 
 ### Configuration Changes
@@ -15,6 +27,9 @@ The configuration array has changed slightly between versions:
 * Per-model configuration has been moved from a protect property into a protected method, and 
   the configuration array is now keyed with the attribute field where the slug is stored (i.e. the
   previous value of the `save_to` configuration.
+* The service provider name has changed, so update the entry in your project's `config/app.php`
+  from `Cviebrock\EloquentSluggable\SluggableServiceProvider::class` to
+  `Cviebrock\EloquentSluggable\ServiceProvider::class`.
   
 #### Version 3.x Configuration Example:
   
@@ -106,3 +121,8 @@ $post = Post::where('slug', $input)->first() ?: Post::findOrFail((int)$input);
 
 Alternatively, your model can use the `SluggableScopeHelpers` trait.  
 See [SCOPE-HELPERS.md](SCOPE-HELPERS.md) for details.
+
+
+- - -
+
+Copyright (c) 2013 Colin Viebrock

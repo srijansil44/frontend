@@ -29,6 +29,7 @@ class AdminPostsController extends Controller
 //             using pagination man
 
         $posts = Post::paginate(2);
+
         return view('admin.posts.index', compact('posts'));
 
     }
@@ -186,21 +187,9 @@ class AdminPostsController extends Controller
 
                 }
 
-
-
-
     }
 
 
-    public function post($slug)
-    {
 
-        $post = Post::findBySlug($slug);
-
-        $comments = $post->comments()->whereIsActive(1)->get();
-
-        return view('post',compact('post','comments'));
-
-    }
 
 }

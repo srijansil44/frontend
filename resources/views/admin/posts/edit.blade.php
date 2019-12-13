@@ -2,7 +2,7 @@
 
 
 @section('content')
-@include('layouts.tiny-editor')
+@include('include.tiny-editor')
     <h1> Edit Posts</h1>
 
     <div class="row">

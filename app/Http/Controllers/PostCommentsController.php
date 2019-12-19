@@ -21,6 +21,7 @@ class PostCommentsController extends Controller
         //
         $comments = Comment::all();
         return view('admin.comments.index',compact('comments'));
+
     }
 
     /**
@@ -66,9 +67,9 @@ class PostCommentsController extends Controller
      */
     public function show($id)
     {
-      $post =   Post::findorfail($id);
+        $post =   Post::findorfail($id);
          $comments  =   $post -> comments;
-       return view('admin.comments.show', compact('comments'));
+         return view('admin.comments.show', compact('comments'));
     }
 
     /**

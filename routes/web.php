@@ -116,6 +116,20 @@ Route::group(['middleware' => 'auth'], function ()
 
 });
 
+Route::resource('/admin/advertisements','AdminAdvertisementsController');
+
+Route::resource('/admin/setting' , 'SettingController');
+
+Route::resource('/admin/socials' , 'SocialsController');
+
+Route::resource('/admin/logo', 'LogoController');
+
+
+Route::resource('/admin/footer', 'FooterController');
+
+Route::resource('/admin/about-us', 'AboutUsController');
+
+
 
 
 if (version_compare(PHP_VERSION, '7.2.0', '>=')) {

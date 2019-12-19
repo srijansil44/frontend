@@ -81,12 +81,76 @@
                 <!-- /.nav-second-level -->
             </li>
 
+            <li>
+                <a href="#"><i class="fa fa-wrench fa-fw"></i>Manage Advertize<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="{{route('advertisements.index')}}">All Advertize</a>
+                    </li>
+
+                    <li>
+                        <a href="{{route('advertisements.create')}}">Add Ad</a>
+                    </li>
+
+                </ul>
+                <!-- /.nav-second-level -->
+            </li>
+
+            <li>
+                <a href="#"><i class="fa fa-wrench fa-fw"></i>Basic Control<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="{{route('setting.index')}}">Basic Setup</a>
+                    </li>
+                </ul>
+                <!-- /.nav-second-level -->
+            </li>
 
 
+            <li>
+                <a href="#"><i class="fa fa-wrench fa-fw"></i>Web Control<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="{{route('logo.index')}}">Manage Logo</a>
+                    </li>
 
+                    <li>
+                        <a href="{{route('footer.index')}}">Manage Footer</a>
+                    </li>
 
+                    <li>
+                        <a href="{{route('socials.index')}}">Manage Social</a>
+                    </li>
 
+                    <li>
+                        <a href="{{route('admin.medias.create')}}">About us </a>
 
+                    </li>
+
+                    <li>
+
+                        <a href="{{route('admin.medias.create')}}">Terms and Condition</a>
+
+                    </li>
+
+                </ul>
+                <!-- /.nav-second-level -->
+            </li>
+
+            <li>
+                <a href="#"><i class="fa fa-wrench fa-fw"></i>Pages<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="{{route('about-us.index')}}">About us </a>
+                    </li>
+                   <li>
+                    <a href="{{route('about-us.index')}}">Terms and Condition</a>
+
+                    </li>
+
+                </ul>
+                <!-- /.nav-second-level -->
+            </li>
 
         </ul>
 

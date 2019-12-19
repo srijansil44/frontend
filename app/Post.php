@@ -22,6 +22,7 @@ class Post extends Model
     public function sluggable()
     {
         return [
+
             'slug' => [
                 'source' => 'title',
                 'onUpdate' => true,

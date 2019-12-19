@@ -361,14 +361,22 @@ class ComposerStaticInit1601d9cf0abfa80576e5e5ef0b01ebc9
     );
 
     public static $classMap = array (
+        'CreateAboutUsesTable' => __DIR__ . '/../..' . '/database/migrations/2019_12_19_162652_create_about_uses_table.php',
+        'CreateAboutsTable' => __DIR__ . '/../..' . '/database/migrations/2019_12_19_162952_create_abouts_table.php',
+        'CreateAdvertisementsTable' => __DIR__ . '/../..' . '/database/migrations/2019_12_18_093126_create_advertisements_table.php',
         'CreateCategoriesTable' => __DIR__ . '/../..' . '/database/migrations/2019_12_01_060821_create_categories_table.php',
         'CreateCommentRepliesTable' => __DIR__ . '/../..' . '/database/migrations/2019_12_05_130916_create_comment_replies_table.php',
         'CreateCommentsTable' => __DIR__ . '/../..' . '/database/migrations/2019_12_05_090342_create_comments_table.php',
+        'CreateFootersTable' => __DIR__ . '/../..' . '/database/migrations/2019_12_19_152509_create_footers_table.php',
+        'CreateLogosTable' => __DIR__ . '/../..' . '/database/migrations/2019_12_19_140454_create_logos_table.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
         'CreatePhotosTable' => __DIR__ . '/../..' . '/database/migrations/2019_11_25_162803_create_photos_table.php',
         'CreatePostsTable' => __DIR__ . '/../..' . '/database/migrations/2019_11_29_154204_create_posts_table.php',
         'CreateRolesTable' => __DIR__ . '/../..' . '/database/migrations/2019_11_15_154327_create_roles_table.php',
+        'CreateSettingsTable' => __DIR__ . '/../..' . '/database/migrations/2019_12_19_072833_create_settings_table.php',
+        'CreateSocialsTable' => __DIR__ . '/../..' . '/database/migrations/2019_12_19_102709_create_socials_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
+        'CreateWebControlsTable' => __DIR__ . '/../..' . '/database/migrations/2019_12_19_102451_create_web_controls_table.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
         'File_Iterator' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Iterator.php',
         'File_Iterator_Facade' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Facade.php',

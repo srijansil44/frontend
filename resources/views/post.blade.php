@@ -1,65 +1,65 @@
-{{--@extends('layouts.blog-home')--}}
+@extends('layouts.blog-home')
 
-{{--@section('content')--}}
+@section('content')
 
-{{--    <div class="container">--}}
-
-
-{{--        <div class="row">--}}
-
-{{--            <!-- Blog Entries Column -->--}}
-{{--            <div class="col-md-8">--}}
-
-{{--                <!-- First Blog Post -->--}}
-
-{{--                @if($posts)--}}
-{{--                    @foreach($posts as $post)--}}
-{{--                        <h2>--}}
-{{--                            <a href="#">{{$post->title}}</a>--}}
-{{--                        </h2>--}}
-{{--                        <p class="lead">--}}
-{{--                            by {{$post->user->name}}--}}
-{{--                        </p>--}}
-{{--                        <p><span class="glyphicon glyphicon-time"></span> {{$post->created_at->diffForHumans()}}</p>--}}
-{{--                        <hr>--}}
-{{--                        <img class="img-responsive" src="{{$post->photo ? $post->photo->path :  $post->photoPlaceHolder()}}" alt="">--}}
-{{--                        <hr>--}}
-{{--                        <p> {!! str_limit($post->body,200)  !!} </p>--}}
-{{--                        <a class="btn btn-primary" href="{{route('home.post',$post->slug)}}">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>--}}
+    <div class="container">
 
 
-{{--                        <hr>--}}
-{{--                @endforeach--}}
+        <div class="row">
 
-{{--            @endif--}}
+            <!-- Blog Entries Column -->
+            <div class="col-md-8">
+
+                <!-- First Blog Post -->
+
+                @if($posts)
+                    @foreach($posts as $post)
+                        <h2>
+                            <a href="#">{{$post->title}}</a>
+                        </h2>
+                        <p class="lead">
+                            by {{$post->user->name}}
+                        </p>
+                        <p><span class="glyphicon glyphicon-time"></span> {{$post->created_at->diffForHumans()}}</p>
+                        <hr>
+                        <img class="img-responsive" src="{{$post->photo ? $post->photo->path :  $post->photoPlaceHolder()}}" alt="">
+                        <hr>
+                        <p> {!! str_limit($post->body,200)  !!} </p>
+                        <a class="btn btn-primary" href="{{route('home.post',$post->slug)}}">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
 
 
+                        <hr>
+                @endforeach
 
-{{--            <!-- Pagination-->--}}
-
-{{--                <div class="row">--}}
-
-{{--                    <div class="col-sm-6 col-sm-offset-5">--}}
-
-{{--                        {{$posts->render()}}--}}
-
-{{--                    </div>--}}
-
-{{--                </div>--}}
+            @endif
 
 
 
-{{--            </div>--}}
+            <!-- Pagination-->
 
-{{--            <!-- Blog Sidebar  -->--}}
-{{--            @include('include.front_sidebar')--}}
+                <div class="row">
 
-{{--        </div>--}}
-{{--        <!-- /.row -->--}}
+                    <div class="col-sm-6 col-sm-offset-5">
+
+                        {{$posts->render()}}
+
+                    </div>
+
+                </div>
 
 
-{{--    </div>--}}
-{{--@endsection--}}
+
+            </div>
+
+            <!-- Blog Sidebar  -->
+            @include('include.front_sidebar')
+
+        </div>
+        <!-- /.row -->
+
+
+    </div>
+@endsection
 
 
         <!DOCTYPE html>
@@ -228,7 +228,7 @@
 
                             <div class="comment-reply-container">
 
-                                {{--                                <button class="toggle-reply btn btn-primary pull-right">Reply</button>--}}
+                                                                <button class="toggle-reply btn btn-primary pull-right">Reply</button>
 
                                 <div class="comment-reply">
 
@@ -252,7 +252,7 @@
 
 
 
-                        {{--   If the comment has replies--}}
+                           If the comment has replies
                         @if(count($comment->replies) > 0)
                             @foreach($comment->replies as $reply )
                                 @if($reply->is_active == 1 )
@@ -271,7 +271,7 @@
                                             </div>
                                             <div class="comment-reply-container">
 
-                                                {{--                                                <button class="toggle-reply btn btn-primary pull-right">Reply</button>--}}
+                                                                                                <button class="toggle-reply btn btn-primary pull-right">Reply</button>
 
                                                 <div class="comment-reply">
 
@@ -393,3 +393,16 @@
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -46,5 +46,7 @@ class HomeController extends Controller
 
         return view('post',compact('post','comments','categories'));
 
+
+
     }
 }
